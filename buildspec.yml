@@ -1,0 +1,11 @@
+version: 0.2
+
+phases:
+  install:
+    runtime-versions:
+      nodejs: 16  # nodejs runtime version you need here.
+  post_build:
+    commands:
+      - aws s3 sync . s3://kishorenew123 # Deploy your build artifacts to an S3 bucket.
+artifacts:
+  files: '**/*'
